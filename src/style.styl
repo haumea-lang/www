@@ -1,0 +1,109 @@
+//@import 'normalize.css'
+
+white  = #ffffff
+black  = #545454
+accent = #d42b58
+accent-dark = darken(accent, 10%)
+
+body {
+  color black
+  background white
+
+  margin 0
+  padding 0
+
+  font-family 'Cabin'
+  font-size responsive 16px 21px
+  line-height 1.56
+}
+
+.c {
+  center()
+}
+
+.center {
+  text-align center
+}
+
+::selection {
+  color white
+  background accent
+}
+
+.invert {
+  color white
+  background accent
+
+  ::selection {
+    color accent
+    background white
+  }
+}
+
+nav {
+  @extend .invert
+
+  padding 2.5rem
+  box-shadow 0 1px 2px rgba(accent-dark, 0.2)
+
+  user-select none
+}
+
+header {
+  @extend .invert
+  background accent-dark
+
+  padding 2.5rem
+
+  h1 {
+    font-size 300%
+    font-weight 600
+    letter-spacing -1px
+
+    margin-top 0
+  }
+
+  h2 {
+    font-weight 400
+    font-size 150%
+  }
+
+  @media (min-width: 900px) {
+    .col {
+      col(2/3)
+    }
+
+    aside {
+      col(1/3)
+      text-align left
+    }
+  }
+}
+
+main {
+  z-index 1
+  box-shadow 0 -1px 2px rgba(black, 0.2)
+
+  padding 2.5rem
+}
+
+.btn {
+  padding .75em
+  margin .75em
+
+  background white
+  color accent
+
+  header & {
+    color accent-dark
+  }
+}
+
+a {
+  cursor pointer
+  font-weight 600
+
+  &:hover {
+    text-decoration underline
+  }
+}
